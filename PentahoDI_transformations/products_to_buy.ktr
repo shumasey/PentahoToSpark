@@ -430,7 +430,7 @@
     <created_date>2021/07/08 10:36:27.706</created_date>
     <modified_user>-</modified_user>
     <modified_date>2021/07/08 10:36:27.706</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -509,6 +509,72 @@
     </hop>
   </order>
   <step>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>js</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>public</schema>
+      <table>products</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>man_code</name>
+        <field>man_code</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>prod_code</name>
+        <field>pro_code</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>quantity</name>
+        <field>pro_stock</field>
+        <condition>&lt;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>pro_name</name>
+        <rename>pro_name</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>pro_stock</name>
+        <rename>pro_stock</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Get data from XML</name>
     <type>getXMLData</type>
     <description/>
@@ -533,7 +599,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>C:\pdi_files\input\orders.xml</name>
+      <name>C:\GitHub\PentahoToSpark\input\orders.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -630,6 +696,55 @@
     </GUI>
   </step>
   <step>
+    <name>Group by</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>man_code</name>
+      </field>
+      <field>
+        <name>prod_code</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>quantity</aggregate>
+        <subject>ordernumber</subject>
+        <type>COUNT_ALL</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Sort rows</name>
     <type>SortRows</type>
     <description/>
@@ -680,121 +795,6 @@
     </GUI>
   </step>
   <step>
-    <name>Group by</name>
-    <type>GroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <all_rows>N</all_rows>
-    <ignore_aggregate>N</ignore_aggregate>
-    <field_ignore/>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>grp</prefix>
-    <add_linenr>N</add_linenr>
-    <linenr_fieldname/>
-    <give_back_row>N</give_back_row>
-    <group>
-      <field>
-        <name>man_code</name>
-      </field>
-      <field>
-        <name>prod_code</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <aggregate>quantity</aggregate>
-        <subject>ordernumber</subject>
-        <type>COUNT_ALL</type>
-        <valuefield/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Database lookup</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>js</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>public</schema>
-      <table>products</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>man_code</name>
-        <field>man_code</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>prod_code</name>
-        <field>pro_code</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>quantity</name>
-        <field>pro_stock</field>
-        <condition>&lt;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>pro_name</name>
-        <rename>pro_name</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>pro_stock</name>
-        <rename>pro_stock</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>384</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Text file output</name>
     <type>TextFileOutput</type>
     <description/>
@@ -819,7 +819,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>C:\pdi_files\output\product_to_buy</name>
+      <name>C:\GitHub\PentahoToSpark\output\product_to_buy</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>

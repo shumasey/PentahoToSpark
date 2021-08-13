@@ -838,7 +838,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>C:\pdi_files\input\orders.xml</name>
+      <name>C:\GitHub\PentahoToSpark\input\orders.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1142,7 +1142,7 @@
     <fileNameField/>
     <create_parent_folder>N</create_parent_folder>
     <file>
-      <name>C:\pdi_files\output\delivery</name>
+      <name>C:\GitHub\PentahoToSpark\output\delivery</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -1283,7 +1283,7 @@
     <fileNameField/>
     <create_parent_folder>N</create_parent_folder>
     <file>
-      <name>C:\pdi_files\output\empty_stock</name>
+      <name>C:\GitHub\PentahoToSpark\output\empty_stock</name>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>

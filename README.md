@@ -23,10 +23,10 @@ At first, the tasks were performed in pentahoDI, and then rewritten to be perfor
 7. Type :load /path to file XXX.scala
 
 ### Case studies
-* Doing Simple Lookup
-* Doing Complex Lookup
-* Filling DataWarehouse
-* Adding Regions
-* Loading the Manufacturers
-* Keeping a History of Changes
-* Keeping a History of Regions
+* [Doing Simple Lookup](https://github.com/shumasey/PentahoToSpark/blob/main/Doing_simple_lookup.md)
+* [Doing Complex Lookup](https://github.com/shumasey/PentahoToSpark/blob/main/Doing_complex_lookup.md)
+* [Filling DataWarehouse](https://github.com/shumasey/PentahoToSpark/blob/main/Filling_datawerehouse.md)
+* [Adding Regions](https://github.com/shumasey/PentahoToSpark/blob/main/Adding_regions.md)
+* [Loading the Manufacturers](https://github.com/shumasey/PentahoToSpark/blob/main/Loading_the_manufacturers.md)
+* [Keeping a History of Changes](https://github.com/shumasey/PentahoToSpark/blob/main/Keepind_a_history_of_changes.md)
+* [Keeping a History of Regions](https://github.com/shumasey/PentahoToSpark/blob/main/Keeping_a_history_of_regions.md)

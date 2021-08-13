@@ -7,9 +7,9 @@ stock for the ordered products and make a list of the products you'll have to bu
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/DoingSimpleLookupPDI_1.png)
 ## Solution in Spark (simpleLookups.scala)
 Import XML driver to load XML data:
-'''
+"'{scala} {
 	import com.databricks.spark.xml._
-'''
+}'"
 Load JDBC driver to connect to database:
 '''
 	:require C:/GitHub/PentahoToSpark/jars/postgresql-42.2.22.jar

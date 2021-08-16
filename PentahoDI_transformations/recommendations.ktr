@@ -656,7 +656,7 @@ AND pro_stock>=?</sql>
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>C:\pdi_files\input\orders.xml</name>
+      <name>C:\GitHub\PentahoToSpark\input\orders.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -821,6 +821,7 @@ AND pro_stock>=?</sql>
     <fields>
       <field>
         <name>customers</name>
+        <rename/>
       </field>
       <field>
         <name>quantity</name>
@@ -832,6 +833,7 @@ AND pro_stock>=?</sql>
       </field>
       <field>
         <name>pro_name</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>

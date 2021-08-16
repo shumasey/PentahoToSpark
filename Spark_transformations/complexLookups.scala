@@ -1,6 +1,6 @@
 import com.databricks.spark.xml._
-:require /C:/data-integration/drivers/postgresql-42.2.22.jar
-val order=spark.read.format("xml").option("rowTag","order").xml("C:/pdi_files/input/orders.xml")
+:require C:/GitHub/PentahoToSpark/jars/postgresql-42.2.22.jar
+val order=spark.read.format("xml").option("rowTag","order").xml("C:/GitHub/PentahoToSpark/input/orders.xml")
 val ordersum=order.groupBy($"man_code",$"prod_code").agg(count("_ordernumber") as "quantity",concat_ws(",",collect_list("idcus")) as "customers")
 val products=spark.read.format("jdbc").option("url","jdbc:postgresql://localhost:5432/postgres").option("driver","org.postgresql.Driver").option("dbtable","public.products").option("user","postgres").option("password","1").load()
 val mergedf=ordersum.join(products,products("pro_code").contains(ordersum("prod_code")),"inner").filter($"pro_stock" < $"quantity")

@@ -6,6 +6,7 @@ stock for the ordered products and make a list of the products you'll have to bu
 ## Solution in Pentaho DI (products_to_buy.ktx)
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/DoingSimpleLookupPDI_1.png)
 ## Solution in Spark (simpleLookups.scala)
+```
 "`{scala} {
 Import XML driver to load XML data:
 	import com.databricks.spark.xml._
@@ -40,7 +41,7 @@ Filter quantity and output results:
 		.write.mode("overwrite")
 		.option("header",true)
 		.option("delimiter",";")
-		.csv("C:/GitHub/PentahoToSpark/output/products_to_buy")}
-"`
+		.csv("C:/GitHub/PentahoToSpark/output/products_to_buy")}"`
+```
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/DoingSimpleLookupSpark_1.png)
 

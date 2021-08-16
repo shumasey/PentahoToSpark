@@ -7,18 +7,18 @@ stock for the ordered products and make a list of the products you'll have to bu
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/DoingSimpleLookupPDI_1.png)
 ## Solution in Spark (simpleLookups.scala)
 ```scala
-Import XML driver to load XML data:
+//Import XML driver to load XML data:
 	import com.databricks.spark.xml._
 
-Load JDBC driver to connect to database:
+//Load JDBC driver to connect to database:
 	:require C:/GitHub/PentahoToSpark/jars/postgresql-42.2.22.jar
 
-Load XML data:
+//Load XML data:
 	val order=spark.read.format("xml")
 		.option("rowTag","order")
 		.xml("C:/GitHub/PentahoToSpark/input/orders.xml")
 
-Load data from database:
+//Load data from database:
 	val products=spark.read.format("jdbc")
 		.option("url","jdbc:postgresql://localhost:5432/postgres")
 		.option("driver","org.postgresql.Driver")
@@ -27,13 +27,13 @@ Load data from database:
 		.option("password","1")
 		.load()
 		
-Group products by product's code:
+//Group products by product's code:
 	val ordersum=order.groupBy($"man_code" as "manu_code",$"prod_code").count()
 	
-Lookup groupped products in database:
+//Lookup groupped products in database:
 	val mergedf=ordersum.join(products,products("pro_code").contains(ordersum("prod_code")),"inner")
 	
-Filter quantity and output results:
+//Filter quantity and output results:
 	mergedf.select('man_code,'prod_code,'pro_name,'count as "quantity")
 		.filter($"count" > $"pro_stock")
 		.coalesce(1)

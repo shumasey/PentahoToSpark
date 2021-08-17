@@ -6,7 +6,7 @@ val manufact=spark.read.format("jdbc").option("url","jdbc:postgresql://localhost
 val manufact1=manufact.withColumnRenamed("man_code","id_js").withColumnRenamed("man_desc","name").withColumn("dummy",lit("N/A")).withColumn("lastupdate",lit(current_date()))
 //Use window for generating technical key
 import org.apache.spark.sql.expressions.Window
-val id=Window.partitionBy('dummy).orderBy('name)
+val id=Window.partitionBy('dummy).orderBy('id_js)
 val manufact2=manufact1.withColumn("id", rank over id)
 //Fit dataframe to dataWarehouse table:
 val manufact3=manufact2.select('id,'name,'id_js,'lastupdate)

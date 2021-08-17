@@ -28,7 +28,7 @@ Create a transformation that loads the manufacturers dimension: _lk_manufacturer
 
 //Use window for generating technical key
 	import org.apache.spark.sql.expressions.Window
-	val id=Window.partitionBy('dummy).orderBy('name)
+	val id=Window.partitionBy('dummy).orderBy('id_js)
 	val manufact2=manufact1.withColumn("id", rank over id)
 
 //Fit dataframe to dataWarehouse table:

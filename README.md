@@ -25,7 +25,7 @@ At first, the tasks were performed in pentahoDI, and then rewritten to be perfor
 ### Case studies
 * [Doing Simple Lookup](https://github.com/shumasey/PentahoToSpark/blob/main/Doing_simple_lookup.md)
 * [Doing Complex Lookup](https://github.com/shumasey/PentahoToSpark/blob/main/Doing_complex_lookup.md)
-* [Filling DataWarehouse](https://github.com/shumasey/PentahoToSpark/blob/main/Filling_datawerehouse.md)
+* [Filling DataWarehouse](https://github.com/shumasey/PentahoToSpark/blob/main/Filling_datawarehouse.md)
 * [Adding Regions](https://github.com/shumasey/PentahoToSpark/blob/main/Adding_regions.md)
 * [Loading the Manufacturers](https://github.com/shumasey/PentahoToSpark/blob/main/Loading_the_manufacturers.md)
 * [Keeping a History of Changes](https://github.com/shumasey/PentahoToSpark/blob/main/Keepind_a_history_of_changes.md)

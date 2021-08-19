@@ -1,7 +1,7 @@
 # Adding Regions
 ## Task
 Modify the transformation that loads the Region dimension to fill the region column. Get the values from the __regions.xls__ file. To add the region information to your stream, use a _Stream_lookup_ step.
-## Solution in Pentaho DI (fill_regions.ktx)
+## Solution in Pentaho DI (fill_regions.ktr)
 ### Transformation
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/AddingRegions_PDItransf.png)
 ### Execution result

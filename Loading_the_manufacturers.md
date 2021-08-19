@@ -1,7 +1,7 @@
 # Loading the Manufacturers
 ## Task
 Create a transformation that loads the manufacturers dimension: _lk_manufacturers_.
-## Solution in Pentaho DI (fill_manufacturers.ktx)
+## Solution in Pentaho DI (fill_manufacturers.ktr)
 ### Transformation
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/FillManufacturers_PDItransf.png)
 ### Execution result

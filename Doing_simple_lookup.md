@@ -3,7 +3,7 @@
 Suppose that you have an online system for your customers to order products. On a daily
 basis, the system creates a file with the orders information. Now, you will check if you have
 stock for the ordered products and make a list of the products you'll have to buy.
-## Solution in Pentaho DI (products_to_buy.ktx)
+## Solution in Pentaho DI (products_to_buy.ktr)
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/DoingSimpleLookupPDI_1.png)
 ## Solution in Spark (simpleLookups.scala)
 ```scala
@@ -50,7 +50,7 @@ Create a new transformation and do the following:
 2. Include their name, last name, and full address.
 3. Order the data by country name.
 4. Verify that there is a product with the given manufacturerand product codes. If the data is valid check the stock and proceed. If not, make a list so the cases can be handled later by the customer care department.
-## Solution in Pentaho DI (delivery.ktx)
+## Solution in Pentaho DI (delivery.ktr)
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/DoingSimpleLookupPDI_2.png)
 ## Solution in Spark (simpleLookups.scala)
 ```scala

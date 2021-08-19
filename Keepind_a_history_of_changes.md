@@ -1,6 +1,6 @@
 # Keeping a History of Changes
 ## Task
-A dimension where changes may occur from time to time is named __Slowly_Changing_Dimension_(SCD)__. If, when you update a SCD dimension, you don't preserve historical values but overwrite the old values, the dimension is called __Type_I_slowly_changing_dimension_(Type_I_SCD)__. Sometimes you would like to keep a history of the changes. Load a puzzles dimension along with the history of the changes in puzzles attributes.
+A dimension where changes may occur from time to time is named __Slowly_Changing_Dimension_(SCD).__ If, when you update a SCD dimension, you don't preserve historical values but overwrite the old values, the dimension is called __Type_I_slowly_changing_dimension_(Type_I_SCD).__ Sometimes you would like to keep a history of the changes. Load a puzzles dimension along with the history of the changes in puzzles attributes.
 ## Solution in Pentaho DI (keep_history.ktr)
 ### Transformation
 ![img](https://github.com/shumasey/PentahoToSpark/blob/main/Screenshots/KeepingHistoryPDItransf.png)
